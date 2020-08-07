@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {Flatlist, StyleSheet, Text, View} from 'react-native'
 
 const ColorBox = ({colorName, hexColor}) => {
   const boxBackground = {
@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 5,
     height: 35,
   },
   boxText: {
