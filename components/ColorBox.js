@@ -1,10 +1,29 @@
 import React from 'react'
-import {View, Text} from 'react-native'
+import {StyleSheet, Text, View} from 'react-native'
 
-export const ColorBox = () => {
+const ColorBox = ({colorName, hexColor}) => {
+  const boxBackground = {
+    backgroundColor: hexColor,
+  }
   return (
-    <View>
-      <Text>Color box text</Text>
+    <View style={[styles.boxContainer, boxBackground]}>
+      <Text style={styles.boxText}>{colorName} :</Text>
+      <Text style={styles.boxText}>{hexColor}</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  boxContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 35,
+  },
+  boxText: {
+    color: '#FFF',
+    fontWeight: '600',
+  },
+})
+
+export {ColorBox}
