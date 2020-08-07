@@ -1,11 +1,12 @@
 import React from 'react'
-import {SafeAreaView, Text, View} from 'react-native'
+import {SafeAreaView, View} from 'react-native'
+import {ColorBox} from './components'
 
 const App = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text>hello, world</Text>
+        <ColorBox />
       </View>
     </SafeAreaView>
   )
