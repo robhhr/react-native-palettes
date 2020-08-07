@@ -1,14 +1,20 @@
 import React from 'react'
-import {Flatlist, StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View} from 'react-native'
 
 const ColorBox = ({colorName, hexColor}) => {
   const boxBackground = {
     backgroundColor: hexColor,
   }
+  const textColor = {
+    color:
+      parseInt(hexColor.replace('#', ''), 16) > 0xffffff / 1.1
+        ? 'black'
+        : 'white',
+  }
   return (
     <View style={[styles.boxContainer, boxBackground]}>
-      <Text style={styles.boxText}>{colorName} :</Text>
-      <Text style={styles.boxText}>{hexColor}</Text>
+      <Text style={(styles.boxText, textColor)}>{colorName} :</Text>
+      <Text style={(styles.boxText, textColor)}>{hexColor}</Text>
     </View>
   )
 }

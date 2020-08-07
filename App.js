@@ -1,5 +1,5 @@
 import React from 'react'
-import {FlatList, SafeAreaView, StyleSheet, View} from 'react-native'
+import {FlatList, SafeAreaView, StyleSheet, Text} from 'react-native'
 import {ColorBox} from './components'
 
 const SOLARIZED_COLORS = [
@@ -31,6 +31,7 @@ const App = () => {
         renderItem={({item}) => (
           <ColorBox colorName={item.colorName} hexColor={item.hexColor} />
         )}
+        ListHeaderComponent={<Text>Solarized</Text>}
       />
     </SafeAreaView>
   )
