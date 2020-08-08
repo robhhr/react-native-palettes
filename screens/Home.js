@@ -20,6 +20,35 @@ const SOLARIZED_COLORS = [
   {paletteName: 'Green', colors: '#859900'},
 ]
 
+const ORANGE_CREME = [
+  {paletteName: 'Vanilla', colors: '#fdf2b8'},
+  {paletteName: 'Orange', colors: '#e88200'},
+  {paletteName: 'Burnt Orange', colors: '#cb2800'},
+  {paletteName: 'Coffee', colors: '#34262b'},
+]
+
+const WILD_JUNGLE = [
+  {paletteName: 'Royal Pink', colors: '#eabaac'},
+  {paletteName: 'Wild Orange', colors: '#be3400'},
+  {paletteName: 'Dark Blue', colors: '#020d22'},
+  {paletteName: 'Jungle Green', colors: '#015045'},
+]
+
+const SUMMER_TONES = [
+  {paletteName: 'Creme', colors: '#fff8d8'},
+  {paletteName: 'Crystal Blue', colors: '#6db9d5'},
+  {paletteName: 'Royal Blue', colors: '#072e74'},
+  {paletteName: 'Yellow Mustard', colors: '#a4c200'},
+]
+
+const DISCORD_COLORS = [
+  {paletteName: 'Digital Purple', colors: '#7289da'},
+  {paletteName: 'White', colors: '#ffffff'},
+  {paletteName: 'Saturn Pink', colors: '#99aab5'},
+  {paletteName: 'Dark Coffee', colors: '#2c2f33'},
+  {paletteName: 'Real Oak', colors: '#23272a'},
+]
+
 const Home = ({navigation}) => {
   return (
     <View>
