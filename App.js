@@ -1,5 +1,7 @@
+import 'react-native-gesture-handler'
 import React from 'react'
 import {FlatList, SafeAreaView, StyleSheet, Text} from 'react-native'
+import {NavigationContainer} from '@react-navigation/native'
 import {ColorBox} from './components'
 
 const SOLARIZED_COLORS = [
@@ -23,17 +25,19 @@ const SOLARIZED_COLORS = [
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <FlatList
-        style={styles.container}
-        data={SOLARIZED_COLORS}
-        keyExtractor={item => item.colorName}
-        renderItem={({item}) => (
-          <ColorBox colorName={item.colorName} hexColor={item.hexColor} />
-        )}
-        ListHeaderComponent={<Text>Solarized</Text>}
-      />
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView>
+        <FlatList
+          style={styles.container}
+          data={SOLARIZED_COLORS}
+          keyExtractor={item => item.colorName}
+          renderItem={({item}) => (
+            <ColorBox colorName={item.colorName} hexColor={item.hexColor} />
+          )}
+          ListHeaderComponent={<Text>Solarized</Text>}
+        />
+      </SafeAreaView>
+    </NavigationContainer>
   )
 }
 
