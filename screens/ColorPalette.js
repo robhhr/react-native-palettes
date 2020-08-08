@@ -10,9 +10,9 @@ const ColorPalette = ({route}) => {
       <FlatList
         style={styles.container}
         data={colors}
-        keyExtractor={item => item.colorName}
+        keyExtractor={item => item.paletteName}
         renderItem={({item}) => (
-          <ColorBox colorName={item.colorName} hexColor={item.hexColor} />
+          <ColorBox paletteName={item.paletteName} colors={item.colors} />
         )}
         ListHeaderComponent={<Text>{paletteName}</Text>}
       />

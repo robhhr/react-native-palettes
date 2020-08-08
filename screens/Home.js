@@ -2,22 +2,22 @@ import React from 'react'
 import {Text, TouchableOpacity, View} from 'react-native'
 
 const SOLARIZED_COLORS = [
-  {colorName: 'Base03', hexColor: '#002b36'},
-  {colorName: 'Base02', hexColor: '#073642'},
-  {colorName: 'Base01', hexColor: '#586e75'},
-  {colorName: 'Base00', hexColor: '#657b83'},
-  {colorName: 'Base0', hexColor: '#839496'},
-  {colorName: 'Base1', hexColor: '#93a1a1'},
-  {colorName: 'Base2', hexColor: '#eee8d5'},
-  {colorName: 'Base3', hexColor: '#fdf6e3'},
-  {colorName: 'Yellow', hexColor: '#b58900'},
-  {colorName: 'Orange', hexColor: '#cb4b16'},
-  {colorName: 'Red', hexColor: '#dc322f'},
-  {colorName: 'Magenta', hexColor: '#d33682'},
-  {colorName: 'Violet', hexColor: '#6c71c4'},
-  {colorName: 'Blue', hexColor: '#268bd2'},
-  {colorName: 'Cyan', hexColor: '#2aa198'},
-  {colorName: 'Green', hexColor: '#859900'},
+  {paletteName: 'Base03', colors: '#002b36'},
+  {paletteName: 'Base02', colors: '#073642'},
+  {paletteName: 'Base01', colors: '#586e75'},
+  {paletteName: 'Base00', colors: '#657b83'},
+  {paletteName: 'Base0', colors: '#839496'},
+  {paletteName: 'Base1', colors: '#93a1a1'},
+  {paletteName: 'Base2', colors: '#eee8d5'},
+  {paletteName: 'Base3', colors: '#fdf6e3'},
+  {paletteName: 'Yellow', colors: '#b58900'},
+  {paletteName: 'Orange', colors: '#cb4b16'},
+  {paletteName: 'Red', colors: '#dc322f'},
+  {paletteName: 'Magenta', colors: '#d33682'},
+  {paletteName: 'Violet', colors: '#6c71c4'},
+  {paletteName: 'Blue', colors: '#268bd2'},
+  {paletteName: 'Cyan', colors: '#2aa198'},
+  {paletteName: 'Green', colors: '#859900'},
 ]
 
 const Home = ({navigation}) => {

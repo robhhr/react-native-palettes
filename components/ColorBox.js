@@ -1,20 +1,20 @@
 import React from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 
-const ColorBox = ({colorName, hexColor}) => {
+const ColorBox = ({paletteName, colors}) => {
   const boxBackground = {
-    backgroundColor: hexColor,
+    backgroundColor: colors,
   }
   const textColor = {
     color:
-      parseInt(hexColor.replace('#', ''), 16) > 0xffffff / 1.1
+      parseInt(colors.replace('#', ''), 16) > 0xffffff / 1.1
         ? 'black'
         : 'white',
   }
   return (
     <View style={[styles.boxContainer, boxBackground]}>
-      <Text style={(styles.boxText, textColor)}>{colorName} :</Text>
-      <Text style={(styles.boxText, textColor)}>{hexColor}</Text>
+      <Text style={(styles.boxText, textColor)}>{paletteName} :</Text>
+      <Text style={(styles.boxText, textColor)}>{colors}</Text>
     </View>
   )
 }
