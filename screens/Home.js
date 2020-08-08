@@ -1,5 +1,6 @@
 import React from 'react'
-import {Text, TouchableOpacity, View} from 'react-native'
+import {FlatList, Text, TouchableOpacity, View} from 'react-native'
+import {ColorBox} from '../components'
 
 const SOLARIZED_COLORS = [
   {paletteName: 'Base03', colors: '#002b36'},
@@ -49,20 +50,31 @@ const DISCORD_COLORS = [
   {paletteName: 'Real Oak', colors: '#23272a'},
 ]
 
+const COLOR_PALETTES = [
+  {paletteName: 'Solarized', colors: SOLARIZED_COLORS},
+  {paletteName: 'Orange Creme', colors: ORANGE_CREME},
+  {paletteName: 'Wild Jungle', colors: WILD_JUNGLE},
+  {paletteName: 'Summer Tones', colors: SUMMER_TONES},
+  {paletteName: 'Discord', colors: DISCORD_COLORS},
+]
+
 const Home = ({navigation}) => {
   return (
-    <View>
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Color Palette', {
-            paletteName: 'Solarized',
-            colors: SOLARIZED_COLORS,
-          })
-        }}
-      >
-        <Text>Color Palette</Text>
-      </TouchableOpacity>
-    </View>
+    <>
+      <FlatList
+        data={COLOR_PALETTES}
+        keyExtractor={item => item.paletteName}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Color Palette', item)
+            }}
+          >
+            <Text>{item.paletteName}</Text>
+          </TouchableOpacity>
+        )}
+      />
+    </>
   )
 }
 
