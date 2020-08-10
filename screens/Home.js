@@ -1,6 +1,6 @@
 import React from 'react'
-import {FlatList, Text, TouchableOpacity, View} from 'react-native'
-import {ColorBox} from '../components'
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {PalettePreview} from '../components'
 
 const SOLARIZED_COLORS = [
   {paletteName: 'Base03', colors: '#002b36'},
@@ -58,23 +58,30 @@ const COLOR_PALETTES = [
   {paletteName: 'Discord', colors: DISCORD_COLORS},
 ]
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: 15,
+  },
+})
+
 const Home = ({navigation}) => {
   return (
-    <>
+    <View style={styles.container}>
       <FlatList
         data={COLOR_PALETTES}
         keyExtractor={item => item.paletteName}
         renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => {
+          <PalettePreview
+            handlePress={() => {
               navigation.navigate('Color Palette', item)
             }}
-          >
-            <Text>{item.paletteName}</Text>
-          </TouchableOpacity>
+            colorPalette={item}
+          />
         )}
       />
-    </>
+    </View>
   )
 }
 
