@@ -1,11 +1,11 @@
 import React from 'react'
 import {
   FlatList,
-  RefreshControl,
+  Platform,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
+  Text,
 } from 'react-native'
 import {PalettePreview} from '../components'
 import {COLOR_PALETTES} from '../utils'
@@ -15,6 +15,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingTop: 15,
+  },
+  button: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: '#00b200',
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginVertical: 10,
+  },
+  buttonText: {
+    textTransform: 'uppercase',
+    color: '#fff',
+    fontWeight: Platform.OS === 'ios' ? '500' : 'bold',
   },
 })
 
@@ -33,7 +47,16 @@ const Home = ({navigation}) => {
           />
         )}
         refreshing={false}
-        onRefresh={() => {}}
+        ListHeaderComponent={
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              navigation.navigate('Color Palette Modal')
+            }}
+          >
+            <Text style={styles.buttonText}>create color palette</Text>
+          </TouchableOpacity>
+        }
       />
     </View>
   )
