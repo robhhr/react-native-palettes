@@ -1,5 +1,12 @@
 import React from 'react'
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {
+  FlatList,
+  RefreshControl,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 import {PalettePreview} from '../components'
 import {COLOR_PALETTES} from '../utils'
 
@@ -25,6 +32,8 @@ const Home = ({navigation}) => {
             colorPalette={item}
           />
         )}
+        refreshing={false}
+        onRefresh={() => {}}
       />
     </View>
   )
