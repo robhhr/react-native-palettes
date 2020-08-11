@@ -14,10 +14,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   palette: {
-    flexDirection: 'row',
     alignItems: 'center',
-    height: 25,
+    height: 35,
+    width: 35,
     marginVertical: 2.5,
+    marginHorizontal: 3,
   },
   paletteName: {
     paddingVertical: 5,
@@ -34,13 +35,11 @@ const PalettePreview = ({colorPalette, handlePress}) => {
     <TouchableOpacity style={styles.container} onPress={handlePress}>
       <Text style={styles.paletteName}>{colorPalette.paletteName}</Text>
       <FlatList
-        data={colorPalette.colors.slice(0, 3)}
+        horizontal={true}
+        data={colorPalette.colors.slice(0, 5)}
         keyExtractor={item => item.colors}
         renderItem={({item}) => (
-          <View style={[{backgroundColor: item.colors}, styles.palette]}>
-            <Text style={styles.colorText}>{item.paletteName}: </Text>
-            <Text>{item.colors}</Text>
-          </View>
+          <View style={[{backgroundColor: item.colors}, styles.palette]}></View>
         )}
       />
     </TouchableOpacity>
