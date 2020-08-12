@@ -59,7 +59,7 @@ const Home = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              navigation.navigate('Color Palette Modal')
+              navigation.navigate('New Color Palette')
             }}
           >
             <Text style={styles.buttonText}>create color palette</Text>
