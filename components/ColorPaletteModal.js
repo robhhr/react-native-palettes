@@ -38,11 +38,17 @@ const styles = StyleSheet.create({
   },
 })
 
-const ColorPaletteModal = () => {
+const ColorPaletteModal = ({navigation}) => {
   const [paletteName, setPaletteName] = useState('')
   const handleSubmit = useCallback(() => {
     if (!paletteName) {
       Alert.alert('Please enter a name')
+    } else {
+      const newPalette = {
+        paletteName,
+        colors: [],
+      }
+      navigation.navigate('Home', {newPalette})
     }
   }, [paletteName])
   return (

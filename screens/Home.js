@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {
   FlatList,
   Platform,
@@ -32,7 +32,15 @@ const styles = StyleSheet.create({
   },
 })
 
-const Home = ({navigation}) => {
+const Home = ({navigation, route}) => {
+  const newPalette = route.params ? route.params.newPalette : undefined
+
+  useEffect(() => {
+    if (newPalette) {
+      COLOR_PALETTES.unshift(newPalette)
+    }
+  })
+
   return (
     <View style={styles.container}>
       <FlatList
