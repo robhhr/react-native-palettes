@@ -1,12 +1,15 @@
 import React, {useState, useCallback} from 'react'
 import {
+  FlatList,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
   Alert,
+  Switch,
 } from 'react-native'
+import {COLORS} from '../utils'
 
 const styles = StyleSheet.create({
   container: {
@@ -19,6 +22,7 @@ const styles = StyleSheet.create({
     borderColor: '#b7b7b7',
     borderWidth: 1,
     marginTop: 5,
+    marginBottom: 15,
     paddingHorizontal: 10,
     borderRadius: 5,
     height: 35,
@@ -28,13 +32,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#00b200',
     borderRadius: 8,
     paddingVertical: 10,
-    marginVertical: 20,
     width: '100%',
   },
   buttonText: {
     textTransform: 'uppercase',
     color: '#fff',
     fontWeight: Platform.OS === 'ios' ? '500' : 'bold',
+  },
+  color: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: 10,
   },
 })
 
@@ -62,6 +71,16 @@ const ColorPaletteModal = ({navigation}) => {
         clearButtonMode={'while-editing'}
         clearTextOnFocus={true}
         enablesReturnKeyAutomatically={true}
+      />
+      <FlatList
+        data={COLORS}
+        keyExtractor={item => item.colorName}
+        renderItem={({item}) => (
+          <View style={styles.color}>
+            <Text>{item.colorName}</Text>
+            <Switch value={true} onValueChange={() => {}}></Switch>
+          </View>
+        )}
       />
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Create palette</Text>
