@@ -1,5 +1,12 @@
-import React, {useState} from 'react'
-import {StyleSheet, Text, TextInput, View} from 'react-native'
+import React, {useState, useCallback} from 'react'
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Alert,
+} from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -16,10 +23,28 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     height: 35,
   },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#00b200',
+    borderRadius: 8,
+    paddingVertical: 10,
+    marginVertical: 20,
+    width: '100%',
+  },
+  buttonText: {
+    textTransform: 'uppercase',
+    color: '#fff',
+    fontWeight: Platform.OS === 'ios' ? '500' : 'bold',
+  },
 })
 
 const ColorPaletteModal = () => {
   const [paletteName, setPaletteName] = useState('')
+  const handleSubmit = useCallback(() => {
+    if (!paletteName) {
+      Alert.alert('Please enter a name')
+    }
+  }, [paletteName])
   return (
     <View style={styles.container}>
       <Text>Name</Text>
@@ -32,6 +57,9 @@ const ColorPaletteModal = () => {
         clearTextOnFocus={true}
         enablesReturnKeyAutomatically={true}
       />
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.buttonText}>Create palette</Text>
+      </TouchableOpacity>
     </View>
   )
 }
