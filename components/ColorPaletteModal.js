@@ -49,17 +49,27 @@ const styles = StyleSheet.create({
 
 const ColorPaletteModal = ({navigation}) => {
   const [paletteName, setPaletteName] = useState('')
+  const [selectedColors, setSelectedColors] = useState([])
   const handleSubmit = useCallback(() => {
     if (!paletteName) {
       Alert.alert('Please enter a name')
+    } else if (selectedColors.length < 3) {
+      Alert.alert('Please add at least 3 colors')
     } else {
       const newPalette = {
         paletteName,
-        colors: [],
+        colors: selectedColors,
       }
       navigation.navigate('Home', {newPalette})
     }
-  }, [paletteName])
+  }, [paletteName, selectedColors])
+  const handleValueChange = useCallback((value, color) => {
+    value
+      ? setSelectedColors(current => [...current, color])
+      : setSelectedColors(current =>
+          current.filter(c => c.paletteName !== color.paletteName),
+        )
+  })
   return (
     <View style={styles.container}>
       <Text>Name</Text>
@@ -74,11 +84,20 @@ const ColorPaletteModal = ({navigation}) => {
       />
       <FlatList
         data={COLORS}
-        keyExtractor={item => item.colorName}
+        keyExtractor={item => item.paletteName}
         renderItem={({item}) => (
           <View style={styles.color}>
-            <Text>{item.colorName}</Text>
-            <Switch value={true} onValueChange={() => {}}></Switch>
+            <Text>{item.paletteName}</Text>
+            <Switch
+              value={
+                !!selectedColors.find(
+                  color => color.paletteName === item.paletteName,
+                )
+              }
+              onValueChange={selected => {
+                handleValueChange(selected, item)
+              }}
+            />
           </View>
         )}
       />
