@@ -8,7 +8,26 @@ import {
   View,
 } from 'react-native'
 
+const PalettePreview = ({colorPalette, handlePress}) => {
+  return (
+    <TouchableOpacity style={styles.container} onPress={handlePress}>
+      <Text style={styles.paletteName}>{colorPalette.paletteName}</Text>
+      <FlatList
+        horizontal={true}
+        data={colorPalette.colors.slice(0, 5)}
+        keyExtractor={item => item.colors}
+        renderItem={({item}) => (
+          <View style={[{backgroundColor: item.colors}, styles.palette]}></View>
+        )}
+      />
+    </TouchableOpacity>
+  )
+}
+
 const styles = StyleSheet.create({
+  colorText: {
+    paddingLeft: 5,
+  },
   container: {
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -25,25 +44,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: Platform.OS === 'ios' ? '400' : 'bold',
   },
-  colorText: {
-    paddingLeft: 5,
-  },
 })
-
-const PalettePreview = ({colorPalette, handlePress}) => {
-  return (
-    <TouchableOpacity style={styles.container} onPress={handlePress}>
-      <Text style={styles.paletteName}>{colorPalette.paletteName}</Text>
-      <FlatList
-        horizontal={true}
-        data={colorPalette.colors.slice(0, 5)}
-        keyExtractor={item => item.colors}
-        renderItem={({item}) => (
-          <View style={[{backgroundColor: item.colors}, styles.palette]}></View>
-        )}
-      />
-    </TouchableOpacity>
-  )
-}
 
 export {PalettePreview}

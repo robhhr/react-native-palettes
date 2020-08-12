@@ -1,57 +1,15 @@
 import React, {useState, useCallback} from 'react'
 import {
+  Alert,
   FlatList,
   StyleSheet,
+  Switch,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-  Alert,
-  Switch,
 } from 'react-native'
 import {COLORS} from '../utils'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 20,
-  },
-  inputContainer: {
-    paddingHorizontal: 20,
-  },
-  input: {
-    borderColor: '#b7b7b7',
-    borderWidth: 1,
-    marginTop: 5,
-    marginBottom: 15,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-    height: 35,
-  },
-  button: {
-    alignSelf: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00b200',
-    borderRadius: 8,
-    paddingVertical: 10,
-    marginVertical: 30,
-    width: '85%',
-  },
-  buttonText: {
-    textTransform: 'uppercase',
-    color: '#fff',
-    fontWeight: Platform.OS === 'ios' ? '500' : 'bold',
-  },
-  color: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    alignSelf: 'center',
-    marginVertical: 10,
-    width: '90%',
-  },
-})
 
 const ColorPaletteModal = ({navigation}) => {
   const [paletteName, setPaletteName] = useState('')
@@ -115,5 +73,47 @@ const ColorPaletteModal = ({navigation}) => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  button: {
+    alignSelf: 'center',
+    alignItems: 'center',
+    backgroundColor: '#00b200',
+    borderRadius: 8,
+    paddingVertical: 10,
+    marginVertical: 30,
+    width: '85%',
+  },
+  buttonText: {
+    textTransform: 'uppercase',
+    color: '#fff',
+    fontWeight: Platform.OS === 'ios' ? '500' : 'bold',
+  },
+  color: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginVertical: 10,
+    width: '90%',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: 20,
+  },
+  input: {
+    borderColor: '#b7b7b7',
+    borderWidth: 1,
+    marginTop: 5,
+    marginBottom: 15,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    height: 35,
+  },
+  inputContainer: {
+    paddingHorizontal: 20,
+  },
+})
 
 export {ColorPaletteModal}

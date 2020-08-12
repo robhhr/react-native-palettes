@@ -3,34 +3,12 @@ import {
   FlatList,
   Platform,
   StyleSheet,
+  Text,
   TouchableOpacity,
   View,
-  Text,
 } from 'react-native'
 import {PalettePreview} from '../components'
 import {COLOR_PALETTES} from '../utils'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    paddingTop: 15,
-  },
-  button: {
-    alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor: '#00b200',
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    marginVertical: 10,
-  },
-  buttonText: {
-    textTransform: 'uppercase',
-    color: '#fff',
-    fontWeight: Platform.OS === 'ios' ? '500' : 'bold',
-  },
-})
 
 const Home = ({navigation, route}) => {
   const newPalette = route.params ? route.params.newPalette : undefined
@@ -69,5 +47,27 @@ const Home = ({navigation, route}) => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: 15,
+  },
+  button: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: '#00b200',
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginVertical: 10,
+  },
+  buttonText: {
+    textTransform: 'uppercase',
+    color: '#fff',
+    fontWeight: Platform.OS === 'ios' ? '500' : 'bold',
+  },
+})
 
 export {Home}
