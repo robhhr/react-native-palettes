@@ -15,8 +15,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingHorizontal: 25,
     paddingTop: 20,
+  },
+  inputContainer: {
+    paddingHorizontal: 20,
   },
   input: {
     borderColor: '#b7b7b7',
@@ -28,11 +30,13 @@ const styles = StyleSheet.create({
     height: 35,
   },
   button: {
+    alignSelf: 'center',
     alignItems: 'center',
     backgroundColor: '#00b200',
     borderRadius: 8,
     paddingVertical: 10,
-    width: '100%',
+    marginVertical: 30,
+    width: '85%',
   },
   buttonText: {
     textTransform: 'uppercase',
@@ -43,7 +47,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    alignSelf: 'center',
     marginVertical: 10,
+    width: '90%',
   },
 })
 
@@ -72,16 +78,18 @@ const ColorPaletteModal = ({navigation}) => {
   })
   return (
     <View style={styles.container}>
-      <Text>Name</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={setPaletteName}
-        placeholder={'My first color palette'}
-        value={paletteName}
-        clearButtonMode={'while-editing'}
-        clearTextOnFocus={true}
-        enablesReturnKeyAutomatically={true}
-      />
+      <View style={styles.inputContainer}>
+        <Text>Name</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={setPaletteName}
+          placeholder={'My first color palette'}
+          value={paletteName}
+          clearButtonMode={'while-editing'}
+          clearTextOnFocus={true}
+          enablesReturnKeyAutomatically={true}
+        />
+      </View>
       <FlatList
         data={COLORS}
         keyExtractor={item => item.paletteName}
