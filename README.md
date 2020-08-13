@@ -12,3 +12,4 @@ In the project directory, you can run:
 
 <img src="./assets/home.png" width="350" title="home screen" />
 <img src="./assets/gif.gif" width="350" title="palette screen" />
+<img src="./assets/palette.png" width="350" title="palette details" />
